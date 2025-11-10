@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante do Seu Neném - Cardápio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive;
+            background: linear-gradient(135deg, #FFF5E1 0%, #FFE4B5 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🍽️';
+            font-size: 80px;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .header::after {
+            content: '👨‍🍳';
+            font-size: 80px;
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            opacity: 0.3;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #FF6B6B;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 4px dashed #FFD93D;
+            padding-bottom: 10px;
+        }
+
+        .dish-card {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFEBCD 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .dish-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 5px solid #FFD93D;
+        }
+
+        .dish-title {
+            font-size: 1.8em;
+            color: #FF6B6B;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .dish-description {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .items-list {
+            list-style: none;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+
+        .items-list li {
+            font-size: 1.3em;
+            padding: 10px;
+            margin: 8px 0;
+            background: #FFF9E6;
+            border-left: 5px solid #FF6B6B;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .items-list li:hover {
+            transform: translateX(10px);
+            background: #FFE4B5;
+        }
+
+        .items-list li::before {
+            content: '🍴 ';
+            margin-right: 10px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.3em;
+        }
+
+        .emoji-decoration {
+            font-size: 2em;
+            display: inline-block;
+            animation: rotate 3s infinite;
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+        }
+
+        .price-tag {
+            background: #FFD93D;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.4em;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍳 Restaurante do Seu Neném 🍳</h1>
+            <p class="subtitle">Comida caseira feita com muito carinho!</p>
+        </div>
+
+        <div class="content">
+            <!-- PRATO PRINCIPAL -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji-decoration">🍽️</span> Prato Principal <span class="emoji-decoration">🍽️</span></h2>
+                <div class="dish-card">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=600&fit=crop" alt="Prato Completo" class="dish-image">
+                    <h3 class="dish-title">🌟 Prato Completo do Seu Neném 🌟</h3>
+                    <div class="dish-description">
+                        <p><strong>Uma refeição completa e deliciosa!</strong></p>
+                        <p style="margin-top: 10px; color: #FF6B6B; font-size: 1.1em;">👉 Escolha sua carne favorita! 👈</p>
+                        <ul class="items-list">
+                            <li><strong>Arroz</strong> branquinho e soltinho 🍚</li>
+                            <li><strong>Feijão com Calabresa</strong> cremoso e saboroso 🫘</li>
+                            <li><strong>Batatas Fritas</strong> crocantes 🍟</li>
+                            <li><strong>Bife de Boi Acebolado</strong> suculento 🥩</li>
+                            <li><strong>Bife de Porco Acebolado</strong> macio e saboroso 🥓</li>
+                            <li><strong>Filé de Frango à Parmegiana</strong> com queijo derretido 🍗</li>
+                            <li><strong>Salada</strong> fresquinha 🥗</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEBIDA -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji-decoration">🥤</span> Bebidas <span class="emoji-decoration">🥤</span></h2>
+                <div class="dish-card">
+                    <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=800&h=600&fit=crop" alt="Suco de Morango com Limão" class="dish-image">
+                    <h3 class="dish-title">🍓 Suco de Morango com Limão 🍋</h3>
+                    <div class="dish-description">
+                        <p>Refresco natural e delicioso! Morango doce com um toque cítrico do limão. Perfeito para refrescar!</p>
+                        <p style="margin-top: 15px; font-style: italic; color: #FF6B6B;">✨ Feito na hora com frutas frescas ✨</p>
+                    </div>
+                </div>
+
+                <div class="dish-card">
+                    <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800&h=600&fit=crop" alt="Suco de Laranja" class="dish-image">
+                    <h3 class="dish-title">🍊 Suco de Laranja Natural 🍊</h3>
+                    <div class="dish-description">
+                        <p>Suco de laranja 100% natural! Refrescante e cheio de vitamina C para dar aquela energia!</p>
+                        <p style="margin-top: 15px; font-style: italic; color: #FF6B6B;">✨ Feito na hora com laranjas fresquinhas ✨</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOBREMESA -->
+            <div class="section">
+                <h2 class="section-title"><span class="emoji-decoration">🍰</span> Sobremesas <span class="emoji-decoration">🍰</span></h2>
+                <div class="dish-card">
+                    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&h=600&fit=crop" alt="Doce de Leite Ninho com Morango" class="dish-image">
+                    <h3 class="dish-title">🍓 Doce de Leite Ninho com Morango 🍓</h3>
+                    <div class="dish-description">
+                        <p><strong>A sobremesa mais irresistível!</strong></p>
+                        <p style="margin-top: 15px;">Cremoso doce de leite Ninho combinado com morangos frescos. Uma explosão de sabor que vai te deixar com água na boca!</p>
+                        <p style="margin-top: 15px; font-size: 1.1em; color: #FF6B6B;">🌟 Especialidade da casa! 🌟</p>
+                    </div>
+                </div>
+
+                <div class="dish-card">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&h=600&fit=crop" alt="Sorvete" class="dish-image">
+                    <h3 class="dish-title">🍦 Sorvete Cremoso 🍦</h3>
+                    <div class="dish-description">
+                        <p><strong>Delicioso sorvete para finalizar sua refeição!</strong></p>
+                        <p style="margin-top: 15px;">Cremoso e refrescante! A sobremesa perfeita para os dias quentes ou para dar aquele toque especial na sua refeição!</p>
+                        <p style="margin-top: 15px; font-size: 1.1em; color: #FF6B6B;">❄️ Vários sabores disponíveis! ❄️</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>🏠 Restaurante do Seu Neném 🏠</strong></p>
+            <p style="margin-top: 15px;">Onde você se sente em casa!</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">❤️ Feito com carinho para você ❤️</p>
+        </div>
+    </div>
+</body>
+</html>
